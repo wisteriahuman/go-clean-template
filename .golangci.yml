@@ -9,14 +9,12 @@ linters:
     - staticcheck
     - govet
     - revive
-    - gofmt
-    - goimports
     - misspell
     - godot
     - gosec
   settings:
     godot:
-      scope: comments
+      scope: declarations
     gocritic:
       enabled-tags:
         - performance
@@ -26,8 +24,13 @@ linters:
       rules:
         - name: exported
     wrapcheck:
-      ignoreSigs:
-        - .Errorf(
+      ignoreSigRegexps:
+        - \.Errorf\(
     gosec:
       excludes:
         - G304
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
