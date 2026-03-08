@@ -24,7 +24,7 @@ linters:
       rules:
         - name: exported
     wrapcheck:
-      ignoreSigRegexps:
+      ignore-sig-regexps:
         - \.Errorf\(
     gosec:
       excludes:
