@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/labels.yml
+  workflow_dispatch:
 jobs:
   labels:
     runs-on: ubuntu-latest
