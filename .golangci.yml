@@ -14,21 +14,20 @@ linters:
     - misspell
     - godot
     - gosec
-
-linters-settings:
-  godot:
-    scope: comments
-  gocritic:
-    enabled-tags:
-      - performance
-      - style
-      - diagnostic
-  revive:
-    rules:
-      - name: exported
-  wrapcheck:
-    ignoreSigs:
-      - .Errorf(
-  gosec:
-    excludes:
-      - G304
+  settings:
+    godot:
+      scope: comments
+    gocritic:
+      enabled-tags:
+        - performance
+        - style
+        - diagnostic
+    revive:
+      rules:
+        - name: exported
+    wrapcheck:
+      ignoreSigs:
+        - .Errorf(
+    gosec:
+      excludes:
+        - G304
