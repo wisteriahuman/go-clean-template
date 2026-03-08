@@ -1,0 +1,11 @@
+/bin/
+*.test
+*.out
+coverage.html
+go.work
+go.work.sum
+vendor/
+.env
+.env.local
+.env.*.local
+tmp/
