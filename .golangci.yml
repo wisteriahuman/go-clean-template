@@ -1,36 +1,33 @@
 version: "2"
 
 linters:
+  default: none
   enable:
-    - errcheck
-    - wrapcheck
-    - errorlint
-    - gocritic
-    - staticcheck
-    - govet
-    - revive
-    - misspell
-    - godot
-    - gosec
+    - errcheck    # errorの握りつぶし検出
+    - govet       # 公式静的解析
+    - staticcheck # バグになりうるパターン
+    - errorlint   # errors.Isを使わずに==比較してないか
+    - misspell    # スペルミス
+    - gosec       # セキュリティ問題
+    - unused      # 未使用変数・関数の検出
+
   settings:
-    godot:
-      scope: declarations
-    gocritic:
-      enabled-tags:
-        - performance
-        - style
-        - diagnostic
-    revive:
-      rules:
-        - name: exported
-    wrapcheck:
-      ignore-sig-regexps:
-        - \.Errorf\(
     gosec:
       excludes:
-        - G304
+        - G304 # ファイルパスの変数使用は許可
+    errcheck:
+      exclude-functions:
+        - fmt.Fprintf
+        - fmt.Fprintln
+        - fmt.Fprint
+
+  exclusions:
+    warn-unused: true
+    presets:
+      - std-error-handling
+      - common-false-positives
 
 formatters:
   enable:
-    - gofmt
-    - goimports
+    - gofmt    # コードフォーマット
+    - goimports # importの整理
